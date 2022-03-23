@@ -1,0 +1,142 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows       
+
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (dockerizing-node-js) npm WARN init canceled
+npm notice 
+npm notice New minor version of npm available! 8.3.1 -> 8.5.5
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v8.5.5
+npm notice Run npm install -g npm@8.5.5 to update!
+npm notice
+
+
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> npm init -y
+Wrote to C:\Users\vrush\OneDrive\Documents\Dockerizing node js\package.json:
+
+{
+  "name": "dockerizing-node-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> npm init   
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (dockerizing-node)
+version: (1.0.0)                                                                                
+description:                                                                                    
+git repository:                                                                                 
+author:                                                                                         
+license: (ISC)                                                                                  
+About to write to C:\Users\vrush\OneDrive\Documents\Dockerizing node js\package.json:
+
+{
+  "name": "dockerizing-node",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+Is this OK? (yes)
+
+
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> npm install express
+
+added 50 packages, and audited 51 packages in 8s
+
+2 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> npm start
+
+> dockerizing-node@1.0.0 start
+> node app.js
+
+My REST API running on port 3000!
+Terminate batch job (Y/N)? Y
+
+
+
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> docker build -t express .
+Sending build context to Docker daemon  2.042MB
+Step 1/6 : FROM node:9-slim
+ ---> e20bb4abe4ee
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> eb30263e9a7f
+Step 3/6 : COPY package.json ./app
+ ---> b5ba901718c2
+Step 4/6 : RUN npm install
+ ---> Running in 14d3418b1f4e
+npm WARN saveError ENOENT: no such file or directory, open '/app/package.json'
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN enoent ENOENT: no such file or directory, open '/app/package.json'
+npm WARN app No description
+npm WARN app No repository field.
+npm WARN app No README data
+npm WARN app No license field.
+
+up to date in 0.17s
+Removing intermediate container 14d3418b1f4e
+ ---> db1d4431d1b4
+Step 5/6 : COPY . /app
+ ---> 851916ad0d07
+Step 6/6 : CMD ["npm","start"]
+ ---> Running in b003ffc52608
+Removing intermediate container b003ffc52608
+ ---> 6f8b64208228
+Successfully built 6f8b64208228
+Successfully tagged express:latest
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> docker run -p 3000:3000 express
+
+> dockerizing-node@1.0.0 start /app
+> node app.js
+
+My REST API running on port 3000!
+
+
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> npm start
+
+> dockerizing-node@1.0.0 start
+> node app.js
+
+My REST API running on port 3000!
+^CTerminate batch job (Y/N)? y
+PS C:\Users\vrush\OneDrive\Documents\Dockerizing node js> 
